@@ -32,7 +32,63 @@ $ git clone https://github.com/spikeekips/stellar-utils.git
 ```
 
 
-## `stellar-keypair`: Generate and Check keypair
+## `stellar-check-account`: Get account information
+
+This is the totally same with the `$ curl <horizon url>/accounts/<account public address>`, but one thing different is, you can do with the secret seed.
+
+
+```
+$ cd stellar-check-account
+$ go get
+$ go install
+```
+
+```
+$ stellar-check-account -h
+stellar-check-account [options] <public address>
+  -horizon string
+    	horizon server address
+  -verbose
+    	verbose
+
+$ stellar-check-account  -horizon https://horizon-testnet.stellar.org -verbose  SDHOAMBNLGCE2MV5ZKIVZAQD3VCLGP53P3OBSBI6UN5L5XZI5TKHFQL4
+{
+  "_links": {
+...
+  },
+  "account_id": "GBRPYHIL2CI3FNQ4BXLFMNDLFJUNPU2HY3ZMFSHONUCEOASW7QC7OX2H",
+  "balances": [
+    {
+      "asset_type": "native",
+      "balance": "709.9951400"
+    }
+  ],
+  "data": {},
+  "flags": {
+    "auth_required": false,
+    "auth_revocable": false
+  },
+  "id": "GBRPYHIL2CI3FNQ4BXLFMNDLFJUNPU2HY3ZMFSHONUCEOASW7QC7OX2H",
+  "paging_token": "",
+  "sequence": "117",
+  "signers": [
+    {
+      "key": "GBRPYHIL2CI3FNQ4BXLFMNDLFJUNPU2HY3ZMFSHONUCEOASW7QC7OX2H",
+      "public_key": "GBRPYHIL2CI3FNQ4BXLFMNDLFJUNPU2HY3ZMFSHONUCEOASW7QC7OX2H",
+      "type": "ed25519_public_key",
+      "weight": 1
+    }
+  ],
+  "subentry_count": 0,
+  "thresholds": {
+    "high_threshold": 0,
+    "low_threshold": 0,
+    "med_threshold": 0
+  }
+}
+```
+
+## `stellar-keypair`: Generate and check keypair
 
 This command is the replacement of the official tool, `stellar-core --genseed`. This can also extract the public address from secret seed or networkPassphrase.
 
