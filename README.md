@@ -29,6 +29,7 @@ $ export PATH=$(pwd)/bin:$PATH
 $ mkdir -p src/github.com/spikeekips
 $ cd src/github.com/spikeekips
 $ git clone https://github.com/spikeekips/stellar-utils.git
+```
 
 
 ## `stellar-keypair`: Generate and Check keypair
